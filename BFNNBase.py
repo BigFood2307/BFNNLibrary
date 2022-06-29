@@ -264,7 +264,7 @@ if __name__ == "__main__":
     batch_size = 128
     epochs = 140
 
-    """
+    
     net = Network()
     l1 = DenseLayer(784, 128, rng_states, activation_list["relu"], net, random_range=0.1)
     l2 = DropoutLayer(128, net, rng_states, 0.3, prev_layer=l1)
@@ -273,7 +273,7 @@ if __name__ == "__main__":
 
     net.rootLayer = l1
     net.resultLayer = lsm
-    """
+    
 
     train_input_raw, train_labels_raw = load_mnist("data/fashion", kind="train")
 
@@ -287,7 +287,7 @@ if __name__ == "__main__":
 
     test_input = test_input_raw / 255
 
-    net = Network.load_from_file("data/network_epoch_149.bin", rng_states)
+    #net = Network.load_from_file("data/network_epoch_149.bin", rng_states)
 
     cost_list, acc_list = net.fit(train_input, train_labels, test_input, test_labels, batch_size, epochs, softmax_prediction_accuracy, 0.00001, save_iter=10, start_epoch=150, cost_type="cee")
 
